@@ -3,7 +3,7 @@
 ## Deploy from config file
 
 ```bash
-kubectl apply -f ./deployment.yaml
+kubectl apply -f ./deployment.yml
 ```
 
 ## Kubectl commands
