@@ -16,4 +16,4 @@ spec:
       - name: jwilder-whoami
         image: jwilder/whoami
         ports:
-        - containerPort: 8080
+        - containerPort: 8000
