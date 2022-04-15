@@ -6,7 +6,7 @@
 kubectl apply -f ./deployment.yml
 ```
 
-## Kubectl commands
+## Basic `kubectl` commands
 
 ```bash
 kubectl get pods
