@@ -38,13 +38,43 @@ cat /etc/resolv.conf
 to see dns settings applied to current pod
 
 
-## Wordpress example
+# Basic ingress
+
+
+
+## Deploy services
 
 1. deploy mysql
+
+>```
+>kubectl apply -f mysql-deployment.yml
+>```
+
 2. deploy wordpress
 
-### enable ingress metallb on node
+>```
+>kubectl apply -f wordpress-deployment.yml
+>```
 
-microk8s enable metallb:10.64.140.43-10.64.140.49
+3. deploy echo
 
-METALLB
+>```
+>kubectl apply -f whoami-deployment.yml
+>```
+
+## Edit local `/etc/hosts`
+
+add lines
+
+```
+192.168.241.190 	wp.micro.com
+192.168.241.190		echo.micro.com
+```
+
+## Enable ingress
+
+Run:
+
+```
+kubectl apply -f ingress.yml
+```
