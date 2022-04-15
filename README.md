@@ -1,4 +1,7 @@
 # Kubernetes Workshop
 
 * [How to setup development environment](env-setup/readme.md)
-* [deployment.md](deployment.md): Deployment example
+* [Basics](basics/readme.md)
+* [Health checks](health-checks/readme.md)
+* [Ingress](ingress/readme.md)
+* [Volumes](volumes/readme.md)

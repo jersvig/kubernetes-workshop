@@ -1,12 +1,14 @@
-# Deployments
+# Basics
 
-## Deploy from config file
+## Deploy deployment from config file
 
 ```bash
-kubectl apply -f ./deployment.yml
+kubectl apply -f ./deployment.yaml
 ```
 
 ## Basic `kubectl` commands
+
+Inspect deployment
 
 ```bash
 kubectl get pods

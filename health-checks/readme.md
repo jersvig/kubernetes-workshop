@@ -1,5 +1,11 @@
 # Health checks
 
+## Deploy deployment
+
+```bash
+kubectl apply -f ./deployment-probes.yaml
+```
+
 ## Probes
 
 * via web calls
