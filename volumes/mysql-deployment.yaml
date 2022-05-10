@@ -21,11 +21,10 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: ""
+  storageClassName: microk8s-hostpath
   resources:
     requests:
       storage: 20Gi
-  volumeName: nfs
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -58,6 +57,7 @@ spec:
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
+          subPath: mysql
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
