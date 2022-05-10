@@ -7,15 +7,24 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: local-pv-1
-  labels:
-    type: local
 spec:
   capacity:
-    storage: 20Gi
+    storage: 30Gi
+  volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: /tmp/data/pv-1
+  - ReadWriteOnce
+  storageClassName: microk8s-hostpath
+  persistentVolumeReclaimPolicy: Delete
+  local:
+    path: /local_volume/v1
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - microkube1
 ```
 
 
@@ -49,7 +58,48 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: microk8s-hostpath
   resources:
     requests:
       storage: 20Gi
+```
+
+# Consuption of persistent volume claim
+
+```yml
+kind: Deployment
+metadata:
+  name: wordpress-mysql
+  labels:
+    app: wordpress
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+      tier: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: wordpress
+        tier: mysql
+    spec:
+      containers:
+      - image: mysql:5.6
+        name: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: PASSWORDS_IN_PLAIN_TEXT_ARE_BAD_WE_WILL_SHOW_SOMETHING_MORE_SECURE_LATER
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+          subPath: mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
 ```
