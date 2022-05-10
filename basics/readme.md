@@ -1,6 +1,6 @@
 # Basics
 
-## Deploy deployment from config file
+## Deploy deployment
 
 ```bash
 kubectl apply -f ./deployment.yaml
