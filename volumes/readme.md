@@ -1,15 +1,17 @@
 # Running examples
 
 1. Create two local persistent volumes
->```
->kubectl apply -f local-volumes.yaml
->```
+
+```
+kubectl apply -f local-volumes.yaml
+```
 
 2. Define and consume volume claims
->```
->kubectl apply -f mysql-deployment.yaml
->kubectl apply -f wp-deployment.yaml
->```
+
+```
+kubectl apply -f mysql-deployment.yaml
+kubectl apply -f wp-deployment.yaml
+```
 
 # Persistent Volume
 
