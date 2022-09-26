@@ -5,3 +5,4 @@
 * [Health checks](health-checks/readme.md)
 * [Ingress](ingress/readme.md)
 * [Volumes](volumes/readme.md)
+* [Local path provisioner](local-path-provisioner/readme.md)
