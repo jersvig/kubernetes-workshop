@@ -6,3 +6,4 @@
 * [Ingress](ingress/readme.md)
 * [Volumes](volumes/readme.md)
 * [Local path provisioner](local-path-provisioner/readme.md)
+* [Cert Manager](cert-manager/readme.md)
