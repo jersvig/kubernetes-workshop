@@ -1,6 +1,6 @@
 # Installing `cert-manager`
 
-[DOCS SOURCE]([https://](https://getbetterdevops.io/k8s-ingress-with-letsencrypt/))
+> [DOCS SOURCE](https://getbetterdevops.io/k8s-ingress-with-letsencrypt/)
 
 
 ## 1. Install helm
