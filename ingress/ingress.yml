@@ -48,3 +48,7 @@ spec:
                 name: example-service
                 port:
                   number: 80
+  tls:
+    - hosts:
+        - "echo.micro.com"
+    
